@@ -1,4 +1,5 @@
 const graph = document.getElementById("graph") as HTMLCanvasElement;
+const unitsSelect = document.getElementById("units") as HTMLTableElement;
 const ctx = graph.getContext("2d")!;
 
 const backgroundColor = "#FFFFFFFF";
@@ -7,7 +8,7 @@ const textColor = "#000000FF";
 const rulerColor = "#000000FF";
 const font = "20px sans-serif";
 
-const scaleX = 10;
+const scaleX = 20;
 const scaleY = 10;
 const offsetX = 80;
 const offsetY = 40;
@@ -16,10 +17,17 @@ const rulerOffsetX = 60;
 const rulerOffsetY = 20;
 const dotRadius = 4;
 
-const data: Array<number> = [];
-for (let i = 0; i <= 11; ++i) {
-    data.push(Math.random() * scaleY);
+interface Unit {
+    values: number[];
 }
+
+const unitNames: string[] = [
+    "ABC",
+    "BBC",
+];
+
+let units = new Map<string, Unit>();
+let data: number[] = [];
 
 function computeX(x: number): number {
     return offsetX + x * ((graph.width - offsetX*2) / scaleX);
@@ -82,11 +90,12 @@ function draw() {
         ctx.lineTo(computeX(i), computeY(data[i]));
     }
     ctx.stroke();
-    for (let i = 0; i < data.length; ++i) {
-        ctx.beginPath();
-        ctx.arc(computeX(i), computeY(data[i]), dotRadius, 0, 2*Math.PI, false);
-        ctx.fill();
-    }
+
+    // for (let i = 0; i < data.length; ++i) {
+    //     ctx.beginPath();
+    //     ctx.arc(computeX(i), computeY(data[i]), dotRadius, 0, 2*Math.PI, false);
+    //     ctx.fill();
+    // }
 }
 
 function frame(_: number) {
@@ -100,4 +109,47 @@ function frame(_: number) {
     window.requestAnimationFrame(frame);
 }
 
+function randomRange(min: number, max: number): number {
+    return Math.random() * (max-min) + min;
+}
+
+function unitChange(ev: Event) {
+    const key = (ev.target as HTMLOptionElement).value;
+    console.log(key);
+    data = units.get(key)?.values || [];
+}
+
+function nextDay() {
+    for (let unit of units) {
+        let a = unit[1].values;
+        let v = randomRange(basePriceMin, basePriceMax);
+        a.push(v);
+    }
+}
+
+for (let name of unitNames) {
+    units.set(name, {
+        values: []
+    });
+}
+
+for (let unit of units) {
+    let elem = document.createElement("option");
+    elem.value = unit[0];
+    elem.textContent = unit[0];
+    unitsSelect.appendChild(elem);
+}
+
+unitsSelect.onchange = unitChange;
+
+const basePriceMin = 1;
+const basePriceMax = 10;
+
+for (let i = 0; i < 1; ++i) {
+    for (let unit of units) {
+        unit[1].values.push(randomRange(basePriceMin, basePriceMax));
+    }
+}
+
+data = units.get(unitNames[0])?.values || [];
 window.requestAnimationFrame(frame);
