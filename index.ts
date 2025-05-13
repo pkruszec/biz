@@ -8,13 +8,13 @@ const backgroundColor = "#FFFFFFFF";
 const plotColor = "#FF0000FF";
 const textColor = "#000000FF";
 const rulerColor = "#000000FF";
-const font = "20px sans-serif";
+const font = "16px sans-serif";
 
 let scaleX = 20;
 let scaleY = 10;
 let rulerScaleY = 10;
 let rulerOffsetX = 80;
-let rulerOffsetY = 20;
+let rulerOffsetY = 25;
 let offsetX = rulerOffsetX + 20;
 let offsetY = 40;
 let dotRadius = 4;
@@ -28,6 +28,10 @@ let firstDate = date;
 interface Unit {
     values: number[];
 }
+
+const weekday: string[] = [
+    "pn", "wt", "śr", "cz", "pt", "sb", "nd"
+];
 
 const unitNames: string[] = [
     "ABC",
@@ -80,11 +84,11 @@ function draw() {
             let r = new Date(firstDate);
             r.setDate(r.getDate() + i + startX);
             //const text = `${pad(r.getDate(), 2)}.${pad(r.getMonth(), 2)}}`;
-            const text = `${pad(r.getDate(), 2)}`;
+            const text = `${weekday[r.getDay()]} ${pad(r.getDate(), 2)}`;
 
             const metrics = ctx.measureText(text);
             const tx = x - metrics.width/2;
-            ctx.fillText(text, tx, graph.height);
+            ctx.fillText(text, tx, graph.height - 8);
         }
 
         for (let j = 1; j <= rulerScaleY; ++j) {
