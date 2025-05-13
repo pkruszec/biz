@@ -1,6 +1,8 @@
 const graph = document.getElementById("graph") as HTMLCanvasElement;
-const unitsSelect = document.getElementById("units") as HTMLTableElement;
+const unitsSelect = document.getElementById("units") as HTMLSelectElement;
 const ctx = graph.getContext("2d")!;
+const dateSpan = document.getElementById("date") as HTMLSpanElement;
+const priceSpan = document.getElementById("price") as HTMLSpanElement;
 
 const backgroundColor = "#FFFFFFFF";
 const plotColor = "#FF0000FF";
@@ -8,14 +10,20 @@ const textColor = "#000000FF";
 const rulerColor = "#000000FF";
 const font = "20px sans-serif";
 
-const scaleX = 20;
-const scaleY = 10;
-const offsetX = 80;
-const offsetY = 40;
-const rulerScaleY = 10;
-const rulerOffsetX = 60;
-const rulerOffsetY = 20;
-const dotRadius = 4;
+let scaleX = 20;
+let scaleY = 10;
+let rulerScaleY = 10;
+let rulerOffsetX = 80;
+let rulerOffsetY = 20;
+let offsetX = rulerOffsetX + 20;
+let offsetY = 40;
+let dotRadius = 4;
+
+let startX = 0;
+let day = 0;
+
+let date = new Date();
+let firstDate = date;
 
 interface Unit {
     values: number[];
@@ -24,10 +32,17 @@ interface Unit {
 const unitNames: string[] = [
     "ABC",
     "BBC",
+    "THC",
+    "CBD",
 ];
 
 let units = new Map<string, Unit>();
 let data: number[] = [];
+
+function pad(n: any, width: any, z: any = '0') {
+    n = n + '';
+    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
 
 function computeX(x: number): number {
     return offsetX + x * ((graph.width - offsetX*2) / scaleX);
@@ -61,7 +76,12 @@ function draw() {
             ctx.moveTo(x, graph.height - rulerOffsetY);
             ctx.lineTo(x, graph.height - offsetY);
 
-            const text = i.toString();
+            //const text = (i + startX).toString();
+            let r = new Date(firstDate);
+            r.setDate(r.getDate() + i + startX);
+            //const text = `${pad(r.getDate(), 2)}.${pad(r.getMonth(), 2)}}`;
+            const text = `${pad(r.getDate(), 2)}`;
+
             const metrics = ctx.measureText(text);
             const tx = x - metrics.width/2;
             ctx.fillText(text, tx, graph.height);
@@ -85,9 +105,9 @@ function draw() {
     ctx.strokeStyle = plotColor;
     ctx.fillStyle = plotColor;
     ctx.beginPath();
-    ctx.moveTo(computeX(0), computeY(data[0]));
+    ctx.moveTo(computeX(0), computeY(data[startX]));
     for (let i = 1; i < data.length; ++i) {
-        ctx.lineTo(computeX(i), computeY(data[i]));
+        ctx.lineTo(computeX(i), computeY(data[startX + i]));
     }
     ctx.stroke();
 
@@ -113,18 +133,42 @@ function randomRange(min: number, max: number): number {
     return Math.random() * (max-min) + min;
 }
 
+function updatePrice() {
+    const xs = units.get(unitsSelect.value)?.values;
+    if (xs) {
+        const x = xs[xs?.length - 1].toFixed(2);
+        priceSpan.textContent = `Cena: ${x}`;
+    }
+}
+
 function unitChange(ev: Event) {
     const key = (ev.target as HTMLOptionElement).value;
     console.log(key);
     data = units.get(key)?.values || [];
+    updatePrice();
 }
 
 function nextDay() {
+    day++;
+
+    let m = 0;
     for (let unit of units) {
         let a = unit[1].values;
-        let v = randomRange(basePriceMin, basePriceMax);
+        let v = randomRange(0, 250);
         a.push(v);
+
+        if (v>m) m = v;
     }
+
+    if (day >= scaleX) startX++;
+    if (m >= scaleY) scaleY = Math.ceil(m/100)*100;
+
+    dateSpan.textContent = date.toLocaleDateString("pl-PL");
+    let r = new Date(date);
+    r.setDate(r.getDate() + 1);
+    date = r;
+
+    updatePrice();
 }
 
 for (let name of unitNames) {
@@ -145,11 +189,19 @@ unitsSelect.onchange = unitChange;
 const basePriceMin = 1;
 const basePriceMax = 10;
 
-for (let i = 0; i < 1; ++i) {
-    for (let unit of units) {
-        unit[1].values.push(randomRange(basePriceMin, basePriceMax));
-    }
+for (let i = 0; i < scaleX/2; ++i) {
+    nextDay();
 }
+
+document.onkeydown = function(ev) {
+    if (ev.key == "n") nextDay();
+}
+
+// for (let i = 0; i < 1; ++i) {
+//     for (let unit of units) {
+//         unit[1].values.push(randomRange(basePriceMin, basePriceMax));
+//     }
+// }
 
 data = units.get(unitNames[0])?.values || [];
 window.requestAnimationFrame(frame);
