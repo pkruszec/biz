@@ -196,14 +196,6 @@ function sell() {
     }
 }
 
-function sellAll() {
-    const x = (shares.get(unitsSelect.value) ?? 0);
-    if (x > 0) {
-        amt.value = x.toFixed(0);
-        sell();
-    }
-}
-
 function nextDay() {
     day++;
 
