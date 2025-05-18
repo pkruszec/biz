@@ -3,6 +3,9 @@ const unitsSelect = document.getElementById("units") as HTMLSelectElement;
 const ctx = graph.getContext("2d")!;
 const dateSpan = document.getElementById("date") as HTMLSpanElement;
 const priceSpan = document.getElementById("price") as HTMLSpanElement;
+const balanceSpan = document.getElementById("balance") as HTMLSpanElement;
+const amt = document.getElementById("amt") as HTMLInputElement;
+const total = document.getElementById("total") as HTMLInputElement;
 
 const backgroundColor = "#FFFFFFFF";
 const plotColor = "#FF0000FF";
@@ -24,6 +27,10 @@ let day = 0;
 
 let date = new Date();
 let firstDate = date;
+
+let balance = 10000;
+
+let shares = new Map<string, number>();
 
 interface Unit {
     values: number[];
@@ -83,8 +90,8 @@ function draw() {
             //const text = (i + startX).toString();
             let r = new Date(firstDate);
             r.setDate(r.getDate() + i + startX);
-            //const text = `${pad(r.getDate(), 2)}.${pad(r.getMonth(), 2)}}`;
-            const text = `${weekday[r.getDay()]} ${pad(r.getDate(), 2)}`;
+            // const text = `${weekday[r.getDay()]} ${pad(r.getDate(), 2)}`;
+            const text = `${pad(r.getDate(), 2)}`;
 
             const metrics = ctx.measureText(text);
             const tx = x - metrics.width/2;
@@ -97,7 +104,7 @@ function draw() {
             ctx.moveTo(rulerOffsetX, y);
             ctx.lineTo(offsetX, y);
 
-            const text = i.toFixed(3).toString();
+            const text = i.toFixed(2).replace(".", ","); // HACK
             const metrics = ctx.measureText(text);
             const ty = y + (metrics.actualBoundingBoxAscent - metrics.actualBoundingBoxDescent)/2;
             ctx.fillText(text, rulerOffsetX - metrics.width, ty);
@@ -114,12 +121,6 @@ function draw() {
         ctx.lineTo(computeX(i), computeY(data[startX + i]));
     }
     ctx.stroke();
-
-    // for (let i = 0; i < data.length; ++i) {
-    //     ctx.beginPath();
-    //     ctx.arc(computeX(i), computeY(data[i]), dotRadius, 0, 2*Math.PI, false);
-    //     ctx.fill();
-    // }
 }
 
 function frame(_: number) {
@@ -140,9 +141,14 @@ function randomRange(min: number, max: number): number {
 function updatePrice() {
     const xs = units.get(unitsSelect.value)?.values;
     if (xs) {
-        const x = xs[xs?.length - 1].toFixed(2);
-        priceSpan.textContent = `Cena: ${x}`;
+        const x = xs[xs?.length - 1].toFixed(2).replace(".", ","); // HACK
+        const y = shares.get(unitsSelect.value)?.toFixed(0) ?? 0;
+        priceSpan.textContent = `| Cena: ${x} | Posiadane: ${y}`;
     }
+}
+
+function updateBalance() {
+    balanceSpan.textContent = `Stan konta: ${balance.toFixed(2).replace(".", ",")}`; // HACK
 }
 
 function unitChange(ev: Event) {
@@ -150,6 +156,52 @@ function unitChange(ev: Event) {
     console.log(key);
     data = units.get(key)?.values || [];
     updatePrice();
+}
+
+function buy() {
+    if (amt.validity.valid) {
+        const xs = units.get(unitsSelect.value)?.values ?? [0];
+        const c = parseInt(amt.value);
+        const p = xs[xs?.length - 1];
+        const t = c*p;
+
+        if (t <= balance) {
+            balance -= t;
+            shares.set(unitsSelect.value, (shares.get(unitsSelect.value) ?? 0) + c);
+            updateBalance();
+            //updateStatus();
+            updatePrice();
+        } else {
+            total.textContent = "Brak środków!";
+        }
+    }
+}
+
+function sell() {
+    if (amt.validity.valid) {
+        const xs = units.get(unitsSelect.value)?.values ?? [0];
+        const c = parseInt(amt.value);
+        const p = xs[xs?.length - 1];
+        const t = c*p;
+        const x = (shares.get(unitsSelect.value) ?? 0);
+
+        if (c <= x) {
+            shares.set(unitsSelect.value, x - c);
+            balance += t;
+            updateBalance();
+            updatePrice();
+        } else {
+            total.textContent = "Brak środków!";
+        }
+    }
+}
+
+function sellAll() {
+    const x = (shares.get(unitsSelect.value) ?? 0);
+    if (x > 0) {
+        amt.value = x.toFixed(0);
+        sell();
+    }
 }
 
 function nextDay() {
@@ -175,6 +227,16 @@ function nextDay() {
     updatePrice();
 }
 
+function updateStatus(ev: any = null) {
+    if (amt.validity.valid) {
+        const xs = units.get(unitsSelect.value)?.values ?? [0];
+        const t = (parseInt(amt.value) * xs[xs?.length - 1]).toFixed(2);
+        total.textContent = `łącznie: ${t}`;
+    } else {
+        total.textContent = `(Wartość musi być między ${amt.min} a ${amt.max})`;
+    }
+}
+
 for (let name of unitNames) {
     units.set(name, {
         values: []
@@ -193,6 +255,7 @@ unitsSelect.onchange = unitChange;
 const basePriceMin = 1;
 const basePriceMax = 10;
 
+
 for (let i = 0; i < scaleX/2; ++i) {
     nextDay();
 }
@@ -201,11 +264,9 @@ document.onkeydown = function(ev) {
     if (ev.key == "n") nextDay();
 }
 
-// for (let i = 0; i < 1; ++i) {
-//     for (let unit of units) {
-//         unit[1].values.push(randomRange(basePriceMin, basePriceMax));
-//     }
-// }
+updateBalance();
+updateStatus();
+amt.oninput = updateStatus;
 
 data = units.get(unitNames[0])?.values || [];
 window.requestAnimationFrame(frame);
