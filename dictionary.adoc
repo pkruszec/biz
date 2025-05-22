@@ -1,11 +1,3 @@
-= Biz
-:revdate: 2025-05-22
-:author: Mateusz Deptała, Artur Hołysz, Paweł Kruszec, Olaf Nosal
-
-++++
-include::embed.html[]
-++++
-
 Podstawowe pojęcia:
 
 * Akcja -- papier wartościowy odpowiadający udziałowi w kapitale spółki. Gdy spółka rośnie, wartość akcji rośnie wraz z nią. W zależności od spółki są mniej lub bardziej stabilne, więc jako początkujący inwestor warto rozważyć fundusze czy ETF-y często opierające się na większej ilości spółek czy indeksach, które są zdecydowanie bardziej stabilne, ale często wolniej rosnące. Z niektórych akcji wypłacane są dywidendy.
