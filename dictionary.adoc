@@ -1,0 +1,63 @@
+Podstawowe pojęcia:
+
+* Akcja -- papier wartościowy odpowiadający udziałowi w kapitale spółki. Gdy spółka rośnie, wartość akcji rośnie wraz z nią. W zależności od spółki są mniej lub bardziej stabilne, więc jako początkujący inwestor warto rozważyć fundusze czy ETF-y często opierające się na większej ilości spółek czy indeksach, które są zdecydowanie bardziej stabilne, ale często wolniej rosnące. Z niektórych akcji wypłacane są dywidendy.
+
+* ETF -- (ang. Exchange Traded Fund) -- fundusz inwestycyjny opierający się na danym wskaźniku, np. indeksie 20 największych spółek na Warszawskiej Giełdzie Papierów Wartościowych (WIG 20), czy aktualnej cenie złota (GLD)
+
+* Papier wartościowy -- dokument lub elektroniczny zapis potwierdzający prawa majątkowe posiadacza. Jego wartość stale się zmienia, ale jest notowana na giełdach (np. GPW, czy NYSE), więc da się go sprzedawać czy przekazywać. Reprezentuje posiadanie danej akcji, ETF-a czy obligacji.
+
+* Obligacja -- dłużny papier wartościowy, który nakazuje emitentowi (organowi wydającemu obligację -- np. spółka czy państwo) wypłacać co określony okres dywidendy obligatariuszowi (posiadaczowi obligacji), aby po pewnym czasie spłacić początkową wartość obligacji wraz z odsetkami -- być wykupioną.
+
+* Fundusz inwestycyjny -- instytucja finansowa, która zbiera kapitał od wielu inwestorów i lokuje go w różne instrumenty, takie jak akcje, obligacje czy nieruchomości, zapewniając profesjonalne zarządzanie i dywersyfikację ryzyka.
+
+* Dywidenda -- pieniądze wpłacane przez emitenta akcji lub obligacji pochodzące z zysków spółki w danym okresie (w przypadku akcji) lub przyjmują określoną stałą wartość (w przypadku obligacji)
+
+* IPO (Initial Public Offering) -- pierwsza oferta publiczna spółki, czyli moment, w którym po raz pierwszy jej akcje są udostępniane do obrotu na giełdzie, co umożliwia inwestorom ich zakup.
+
+* Kryptowaluty -- cyfrowe aktywa wykorzystujące technologię blockchain, służące jako środek wymiany lub forma inwestycji; ich wartość jest określana przez podaż, popyt oraz spekulacje rynkowe.
+
+Mechanizmy rynku:
+
+* Płynność -- zdolność aktywa do szybkiego zakupu lub sprzedaży na rynku bez znaczącego wpływu na jego cenę; im wyższa płynność, tym łatwiej znaleźć kupca lub sprzedawcę.
+
+* Kapitalizacja rynkowa -- łączna wartość rynkowa wszystkich akcji danej spółki, obliczana poprzez pomnożenie liczby akcji przez ich aktualną cenę; określa wielkość firmy na giełdzie.
+
+* Wolumen -- liczba aktywów (np. akcji czy kontraktów) sprzedanych i kupionych w określonym czasie, często używana do analizy dynamiki rynku i trendów inwestycyjnych.
+
+* Spread -- różnica między ceną kupna a sprzedaży danego instrumentu finansowego, wyrażona w procentach lub jednostkach walutowych; jego wartość zależy m.in. od płynności rynku.
+
+Strategie inwestycyjne:
+
+* Short selling -- strategia inwestycyjna polegająca na sprzedaży pożyczonych akcji w oczekiwaniu na spadek ich ceny, a następnie ich odkupieniu po niższej wartości, co pozwala na osiągnięcie zysku.
+
+* Długoterminowe inwestowanie -- strategia polegająca na zakupie aktywów (np. akcji, ETF-ów czy obligacji) na wiele lat, często oparta na analizie fundamentalnej spółek i oczekiwaniu na ich wzrost wartości w długim okresie.
+
+* Day trading -- technika inwestowania, w której kupno i sprzedaż aktywów odbywa się w ciągu jednego dnia; inwestorzy wykorzystują krótkoterminowe ruchy cenowe, często bazując na analizie technicznej.
+
+* Dywersyfikacja -- strategia mająca na celu ograniczenie ryzyka inwestycyjnego poprzez rozłożenie kapitału na różne aktywa, sektory lub rynki; dzięki temu ewentualne straty w jednej inwestycji mogą zostać zrekompensowane przez zyski w innych.
+
+* Analiza fundamentalna -- metoda oceny wartości aktywa poprzez analizę czynników makroekonomicznych, raportów finansowych spółek, wskaźników ekonomicznych oraz zarządu firmy; pomaga określić, czy akcje są przewartościowane lub niedowartościowane.
+
+* Analiza techniczna -- metoda badania rynku bazująca na wykresach cenowych, wskaźnikach matematycznych oraz trendach rynkowych; inwestorzy analizują historyczne zmiany cen, aby przewidzieć przyszłe ruchy.
+
+* Stop loss -- mechanizm automatycznej sprzedaży aktywa po osiągnięciu określonego poziomu strat, pozwalający ograniczyć ryzyko i chronić kapitał inwestora.
+
+Zjawiska na rynku:
+
+* Hossa -- (łac. byk) długotrwały okres wzrostu cen aktywów na rynku, często napędzany pozytywnymi wynikami spółek, optymizmem inwestorów oraz rosnącą gospodarką.
+
+* Bessa -- (łac. niedźwiedź) okres długotrwałego spadku cen aktywów, zwykle związany z kryzysem gospodarczym, recesją lub niepewnością na rynku; inwestorzy często poszukują bezpiecznych aktywów, takich jak złoto czy obligacje skarbowe.
+
+* Bańka spekulacyjna -- sytuacja, w której ceny aktywów rosną w sposób nieuzasadniony przez fundamenty ekonomiczne, często napędzana przez nadmierny entuzjazm inwestorów; bańki kończą się gwałtownym spadkiem wartości aktywów.
+
+* FOMO (Fear of Missing Out) -- psychologiczny czynnik wpływający na decyzje inwestycyjne, polegający na obawie przed utratą potencjalnego zysku; prowadzi do impulsywnego kupowania aktywów na szczytach cenowych.
+
+Inne przydatne pojęcia:
+
+* Dyrektywa MIFID II -- unijne regulacje dotyczące rynku finansowego, których celem jest zwiększenie przejrzystości, ochrona inwestorów oraz ułatwienie dostępu do informacji o produktach finansowych.
+
+* Podatek od dywidendy -- opłata nakładana na wypłacone dywidendy; w Polsce wynosi 19%, ale w zależności od kraju oraz umów podatkowych może się różnić.
+
+* Konto maklerskie -- rachunek, który umożliwia inwestorom handel aktywami na giełdzie poprzez brokera; za jego pomocą można kupować i sprzedawać akcje, ETF-y, obligacje i instrumenty pochodne.
+
+* Broker -- instytucja finansowa lub osoba pośrednicząca w zakupie i sprzedaży aktywów na rynku; brokerzy pobierają prowizję lub spread za przeprowadzane transakcje.
