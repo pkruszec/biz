@@ -431,26 +431,34 @@ chart_js.Chart.register(CandlestickController, OhlcController, CandlestickElemen
 <canvas id="chart"></canvas>
 
 <script>
-    var ctx = document.getElementById("chart").getContext("2d");
-    ctx.canvas.width = 250;
-    ctx.canvas.height = 25;
+//var barCount = 60;
+// var initialDateStr = new Date().toUTCString();
+var currentDate = luxon.DateTime.fromRFC2822(new Date().toUTCString());
+var maxW = 40;
 
-    var barData = new Array(30);
-    getRandomData(new Date().toUTCString());
+var ctx = document.getElementById('chart').getContext('2d');
+ctx.canvas.width = 1000;
+ctx.canvas.height = 250;
 
-    var chart = new Chart(ctx, {
-        type: 'candlestick',
-        data: {
-            datasets: [
-                {
-                    label: 'CHRT',
-                    data: barData,
-                },
-            ]
-        }
-    });
+var barData = new Array(0);
 
-    function randomNumber(min, max) {
+var chart = new Chart(ctx, {
+  type: 'candlestick',
+  data: {
+    datasets: [{
+      label: 'ABC',
+      data: barData,
+    },]
+  },
+  options: {
+    animation: false,
+  }
+});
+
+for (let i = 0; i < 30; ++i) nextDay();
+chart.update();
+
+function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
@@ -471,18 +479,29 @@ function randomBar(target, index, date, lastClose) {
     l: low,
     c: close
   });
-
 }
 
-    function getRandomData(dateStr) {
-    var date = luxon.DateTime.fromRFC2822(dateStr);
+function nextDay() {
+  barData.push({});
+  let index = barData.length - 1;
+  for (let i = 0; i < 1;) {
+    currentDate = currentDate.plus({days: 1});
+    if (currentDate.weekday <= 5) {
+      randomBar(barData, index, currentDate, i === 0 ? 30 : barData[i - 1].c);
+      i++;
+    }
+  }
 
-    for (let i = 0; i < barData.length;) {
-        date = date.plus({days: 1});
-        if (date.weekday <= 5) {
-        randomBar(barData, i, date, i === 0 ? 30 : barData[i - 1].c);
-        i++;
-        }
-    }
-    }
+  while (barData.length > maxW) {
+    barData.shift();
+  }
+}
+
+document.onkeydown = function(ev) {
+  if (ev.key === 'n') {
+    nextDay();
+    chart.update();
+  }
+};
+
 </script>
