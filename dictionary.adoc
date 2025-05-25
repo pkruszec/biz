@@ -2,7 +2,7 @@ Podstawowe pojęcia:
 
 * Akcja -- papier wartościowy odpowiadający udziałowi w kapitale spółki. Gdy spółka rośnie, wartość akcji rośnie wraz z nią. W zależności od spółki są mniej lub bardziej stabilne, więc jako początkujący inwestor warto rozważyć fundusze czy ETF-y często opierające się na większej ilości spółek czy indeksach, które są zdecydowanie bardziej stabilne, ale często wolniej rosnące. Z niektórych akcji wypłacane są dywidendy.
 
-* ETF -- (ang. Exchange Traded Fund) -- fundusz inwestycyjny opierający się na danym wskaźniku, np. indeksie 20 największych spółek na Warszawskiej Giełdzie Papierów Wartościowych (WIG 20), czy aktualnej cenie złota (GLD)
+* ETF (ang. Exchange Traded Fund) -- fundusz inwestycyjny opierający się na danym wskaźniku, np. indeksie 20 największych spółek na Warszawskiej Giełdzie Papierów Wartościowych (WIG 20), czy aktualnej cenie złota (GLD)
 
 * Papier wartościowy -- dokument lub elektroniczny zapis potwierdzający prawa majątkowe posiadacza. Jego wartość stale się zmienia, ale jest notowana na giełdach (np. GPW, czy NYSE), więc da się go sprzedawać czy przekazywać. Reprezentuje posiadanie danej akcji, ETF-a czy obligacji.
 
@@ -12,7 +12,7 @@ Podstawowe pojęcia:
 
 * Dywidenda -- pieniądze wpłacane przez emitenta akcji lub obligacji pochodzące z zysków spółki w danym okresie (w przypadku akcji) lub przyjmują określoną stałą wartość (w przypadku obligacji)
 
-* IPO (Initial Public Offering) -- pierwsza oferta publiczna spółki, czyli moment, w którym po raz pierwszy jej akcje są udostępniane do obrotu na giełdzie, co umożliwia inwestorom ich zakup.
+* IPO (ang. Initial Public Offering) -- pierwsza oferta publiczna spółki, czyli moment, w którym po raz pierwszy jej akcje są udostępniane do obrotu na giełdzie, co umożliwia inwestorom ich zakup.
 
 * Kryptowaluty -- cyfrowe aktywa wykorzystujące technologię blockchain, służące jako środek wymiany lub forma inwestycji; ich wartość jest określana przez podaż, popyt oraz spekulacje rynkowe.
 
@@ -50,7 +50,7 @@ Zjawiska na rynku:
 
 * Bańka spekulacyjna -- sytuacja, w której ceny aktywów rosną w sposób nieuzasadniony przez fundamenty ekonomiczne, często napędzana przez nadmierny entuzjazm inwestorów; bańki kończą się gwałtownym spadkiem wartości aktywów.
 
-* FOMO (Fear of Missing Out) -- psychologiczny czynnik wpływający na decyzje inwestycyjne, polegający na obawie przed utratą potencjalnego zysku; prowadzi do impulsywnego kupowania aktywów na szczytach cenowych.
+* FOMO (ang. Fear of Missing Out) -- psychologiczny czynnik wpływający na decyzje inwestycyjne, polegający na obawie przed utratą potencjalnego zysku; prowadzi do impulsywnego kupowania aktywów na szczytach cenowych.
 
 Inne przydatne pojęcia:
 
