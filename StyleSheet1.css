@@ -1,0 +1,114 @@
+﻿* {
+    margin: 0.5em;
+    padding: 0.5em;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    color: white;
+}
+
+
+.dashboard {
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 0.5em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.card_group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 45%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.7rem;
+    margin: 0.5rem;  
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0.7rem;
+    margin: 0.5rem;
+}
+
+
+button {
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: medium;
+    border-radius: 8px;
+}   
+
+.red_button {
+    background: rgba(220, 40, 40, 0.7);
+    transition: all 0.6s;
+}
+
+.red_button:is(:hover){
+    background-color: rgb(255, 10, 10, 0.9);
+
+}
+
+.green_button {
+    background: rgba(40,220,40,0.7);
+        transition: all 0.6s;
+}
+
+.green_button:is(:hover) {
+    background: rgba(10,255,10,0.9);
+}
+
+
+#select{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    min-width: max-content;
+    color: aliceblue;
+    border: none;
+    font-size: medium;
+}
+
+#balance{
+    font-size: medium;
+
+}
+
+
+#date{
+    font-size: medium;
+
+}
+
+h1{
+    font-size: large;
+    font-weight: 800;
+    text-align: center;
+}
+
+h2{
+    font-size: medium;
+}
+
