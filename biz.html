@@ -12,7 +12,7 @@
     <style>
         * {
             margin: 0.5em;
-            padding: 0.5em;
+            /* padding: 0.5em; */
             box-sizing: border-box;
         }
         
@@ -55,7 +55,7 @@
             width: 45%;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            padding: 0.7rem;
+            padding: 0.6rem;
             margin: 0.5rem;  
         }
         
@@ -64,7 +64,6 @@
             flex-direction: row;
             width: 45%;
             background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
             border-radius: 10px;
             text-align: center;
             padding: 0.7rem;
@@ -108,17 +107,15 @@
             color: aliceblue;
             border: none;
             font-size: medium;
+            padding: 0.2em;
         }
         
         #balance{
-            font-size: medium;
-            
+            font-size: medium;    
         }
-        
         
         #date{
             font-size: medium;
-            
         }
         
         h1{
@@ -131,7 +128,7 @@
             font-size: medium;
         }
         
-        h1,h2,span,select,input,button {
+        h1,h2,span,select,input,button,.dictionary {
             font-family: 'Consolas', monospace;
         }
 
@@ -162,7 +159,7 @@
                 </div>
                 <div class="card">
                     <button id="buy" class="green_button">Kup</button>
-                    <input type="number" min="1" max="1000000" id="buyCount"></input>
+                    <input type="number" min="1" max="1000000" id="buyCount" placeholder="Ilość"></input>
                     <span id="buyPrice"></span>
                 </div>
             </div>
@@ -173,13 +170,132 @@
                 </div>
                 <div class="card">
                     <button id="sell" class="red_button">Sprzedaj</button>
-                    <input type="number" min="1" max="1000000" id="sellCount"></input>
+                    <input type="number" min="1" max="1000000" id="sellCount" placeholder="Ilość"></input>
                     <span id="sellPrice"></span>
                 </div>
             </div>
         </div>
     </div>
     
+    <div class="dictionary">
+    <div class="paragraph">
+    <p>Podstawowe pojęcia:</p>
+    </div>
+    <div class="ulist">
+    <ul>
+    <li>
+    <p>Akcja&#8201;&#8212;&#8201;papier wartościowy odpowiadający udziałowi w kapitale spółki. Gdy spółka rośnie, wartość akcji rośnie wraz z nią. W zależności od spółki są mniej lub bardziej stabilne, więc jako początkujący inwestor warto rozważyć fundusze czy ETF-y często opierające się na większej ilości spółek czy indeksach, które są zdecydowanie bardziej stabilne, ale często wolniej rosnące. Z niektórych akcji wypłacane są dywidendy.</p>
+    </li>
+    <li>
+    <p>ETF (ang. Exchange Traded Fund)&#8201;&#8212;&#8201;fundusz inwestycyjny opierający się na danym wskaźniku, np. indeksie 20 największych spółek na Warszawskiej Giełdzie Papierów Wartościowych (WIG 20), czy aktualnej cenie złota (GLD)</p>
+    </li>
+    <li>
+    <p>Papier wartościowy&#8201;&#8212;&#8201;dokument lub elektroniczny zapis potwierdzający prawa majątkowe posiadacza. Jego wartość stale się zmienia, ale jest notowana na giełdach (np. GPW, czy NYSE), więc da się go sprzedawać czy przekazywać. Reprezentuje posiadanie danej akcji, ETF-a czy obligacji.</p>
+    </li>
+    <li>
+    <p>Obligacja&#8201;&#8212;&#8201;dłużny papier wartościowy, który nakazuje emitentowi (organowi wydającemu obligację&#8201;&#8212;&#8201;np. spółka czy państwo) wypłacać co określony okres dywidendy obligatariuszowi (posiadaczowi obligacji), aby po pewnym czasie spłacić początkową wartość obligacji wraz z odsetkami&#8201;&#8212;&#8201;być wykupioną.</p>
+    </li>
+    <li>
+    <p>Fundusz inwestycyjny&#8201;&#8212;&#8201;instytucja finansowa, która zbiera kapitał od wielu inwestorów i lokuje go w różne instrumenty, takie jak akcje, obligacje czy nieruchomości, zapewniając profesjonalne zarządzanie i dywersyfikację ryzyka.</p>
+    </li>
+    <li>
+    <p>Dywidenda&#8201;&#8212;&#8201;pieniądze wpłacane przez emitenta akcji lub obligacji pochodzące z zysków spółki w danym okresie (w przypadku akcji) lub przyjmują określoną stałą wartość (w przypadku obligacji)</p>
+    </li>
+    <li>
+    <p>IPO (ang. Initial Public Offering)&#8201;&#8212;&#8201;pierwsza oferta publiczna spółki, czyli moment, w którym po raz pierwszy jej akcje są udostępniane do obrotu na giełdzie, co umożliwia inwestorom ich zakup.</p>
+    </li>
+    <li>
+    <p>Kryptowaluty&#8201;&#8212;&#8201;cyfrowe aktywa wykorzystujące technologię blockchain, służące jako środek wymiany lub forma inwestycji; ich wartość jest określana przez podaż, popyt oraz spekulacje rynkowe.</p>
+    </li>
+    </ul>
+    </div>
+    <div class="paragraph">
+    <p>Mechanizmy rynku:</p>
+    </div>
+    <div class="ulist">
+    <ul>
+    <li>
+    <p>Płynność&#8201;&#8212;&#8201;zdolność aktywa do szybkiego zakupu lub sprzedaży na rynku bez znaczącego wpływu na jego cenę; im wyższa płynność, tym łatwiej znaleźć kupca lub sprzedawcę.</p>
+    </li>
+    <li>
+    <p>Kapitalizacja rynkowa&#8201;&#8212;&#8201;łączna wartość rynkowa wszystkich akcji danej spółki, obliczana poprzez pomnożenie liczby akcji przez ich aktualną cenę; określa wielkość firmy na giełdzie.</p>
+    </li>
+    <li>
+    <p>Wolumen&#8201;&#8212;&#8201;liczba aktywów (np. akcji czy kontraktów) sprzedanych i kupionych w określonym czasie, często używana do analizy dynamiki rynku i trendów inwestycyjnych.</p>
+    </li>
+    <li>
+    <p>Spread&#8201;&#8212;&#8201;różnica między ceną kupna a sprzedaży danego instrumentu finansowego, wyrażona w procentach lub jednostkach walutowych; jego wartość zależy m.in. od płynności rynku.</p>
+    </li>
+    </ul>
+    </div>
+    <div class="paragraph">
+    <p>Strategie inwestycyjne:</p>
+    </div>
+    <div class="ulist">
+    <ul>
+    <li>
+    <p>Short selling&#8201;&#8212;&#8201;strategia inwestycyjna polegająca na sprzedaży pożyczonych akcji w oczekiwaniu na spadek ich ceny, a następnie ich odkupieniu po niższej wartości, co pozwala na osiągnięcie zysku.</p>
+    </li>
+    <li>
+    <p>Długoterminowe inwestowanie&#8201;&#8212;&#8201;strategia polegająca na zakupie aktywów (np. akcji, ETF-ów czy obligacji) na wiele lat, często oparta na analizie fundamentalnej spółek i oczekiwaniu na ich wzrost wartości w długim okresie.</p>
+    </li>
+    <li>
+    <p>Day trading&#8201;&#8212;&#8201;technika inwestowania, w której kupno i sprzedaż aktywów odbywa się w ciągu jednego dnia; inwestorzy wykorzystują krótkoterminowe ruchy cenowe, często bazując na analizie technicznej.</p>
+    </li>
+    <li>
+    <p>Dywersyfikacja&#8201;&#8212;&#8201;strategia mająca na celu ograniczenie ryzyka inwestycyjnego poprzez rozłożenie kapitału na różne aktywa, sektory lub rynki; dzięki temu ewentualne straty w jednej inwestycji mogą zostać zrekompensowane przez zyski w innych.</p>
+    </li>
+    <li>
+    <p>Analiza fundamentalna&#8201;&#8212;&#8201;metoda oceny wartości aktywa poprzez analizę czynników makroekonomicznych, raportów finansowych spółek, wskaźników ekonomicznych oraz zarządu firmy; pomaga określić, czy akcje są przewartościowane lub niedowartościowane.</p>
+    </li>
+    <li>
+    <p>Analiza techniczna&#8201;&#8212;&#8201;metoda badania rynku bazująca na wykresach cenowych, wskaźnikach matematycznych oraz trendach rynkowych; inwestorzy analizują historyczne zmiany cen, aby przewidzieć przyszłe ruchy.</p>
+    </li>
+    <li>
+    <p>Stop loss&#8201;&#8212;&#8201;mechanizm automatycznej sprzedaży aktywa po osiągnięciu określonego poziomu strat, pozwalający ograniczyć ryzyko i chronić kapitał inwestora.</p>
+    </li>
+    </ul>
+    </div>
+    <div class="paragraph">
+    <p>Zjawiska na rynku:</p>
+    </div>
+    <div class="ulist">
+    <ul>
+    <li>
+    <p>Hossa&#8201;&#8212;&#8201;(łac. byk) długotrwały okres wzrostu cen aktywów na rynku, często napędzany pozytywnymi wynikami spółek, optymizmem inwestorów oraz rosnącą gospodarką.</p>
+    </li>
+    <li>
+    <p>Bessa&#8201;&#8212;&#8201;(łac. niedźwiedź) okres długotrwałego spadku cen aktywów, zwykle związany z kryzysem gospodarczym, recesją lub niepewnością na rynku; inwestorzy często poszukują bezpiecznych aktywów, takich jak złoto czy obligacje skarbowe.</p>
+    </li>
+    <li>
+    <p>Bańka spekulacyjna&#8201;&#8212;&#8201;sytuacja, w której ceny aktywów rosną w sposób nieuzasadniony przez fundamenty ekonomiczne, często napędzana przez nadmierny entuzjazm inwestorów; bańki kończą się gwałtownym spadkiem wartości aktywów.</p>
+    </li>
+    <li>
+    <p>FOMO (ang. Fear of Missing Out)&#8201;&#8212;&#8201;psychologiczny czynnik wpływający na decyzje inwestycyjne, polegający na obawie przed utratą potencjalnego zysku; prowadzi do impulsywnego kupowania aktywów na szczytach cenowych.</p>
+    </li>
+    </ul>
+    </div>
+    <div class="paragraph">
+    <p>Inne przydatne pojęcia:</p>
+    </div>
+    <div class="ulist">
+    <ul>
+    <li>
+    <p>Dyrektywa MIFID II&#8201;&#8212;&#8201;unijne regulacje dotyczące rynku finansowego, których celem jest zwiększenie przejrzystości, ochrona inwestorów oraz ułatwienie dostępu do informacji o produktach finansowych.</p>
+    </li>
+    <li>
+    <p>Podatek od dywidendy&#8201;&#8212;&#8201;opłata nakładana na wypłacone dywidendy; w Polsce wynosi 19%, ale w zależności od kraju oraz umów podatkowych może się różnić.</p>
+    </li>
+    <li>
+    <p>Konto maklerskie&#8201;&#8212;&#8201;rachunek, który umożliwia inwestorom handel aktywami na giełdzie poprzez brokera; za jego pomocą można kupować i sprzedawać akcje, ETF-y, obligacje i instrumenty pochodne.</p>
+    </li>
+    <li>
+    <p>Broker&#8201;&#8212;&#8201;instytucja finansowa lub osoba pośrednicząca w zakupie i sprzedaży aktywów na rynku; brokerzy pobierają prowizję lub spread za przeprowadzane transakcje.</p>
+    </li>
+    </ul>
+    </div>
+    </div>
+
     <!-- ================== -->
     <!-- ===  JS BEGIN  === -->
     <!-- ================== -->
