@@ -102,6 +102,7 @@
         
         #select{
             background-color: rgba(255, 255, 255, 0.2);
+            background: #3b3b3b;
             border-radius: 12px;
             min-width: max-content;
             color: aliceblue;
@@ -130,14 +131,20 @@
             font-size: medium;
         }
         
-        
+        h1,h2,span,select,input,button {
+            font-family: 'Consolas', monospace;
+        }
+
+        input{
+            font-size: medium;
+        }
         
     </style>
 </head>
 
 <body>
     
-    <h1>OMPA Trading Simólator</h1>
+    <h1>OMPA Trading Simólator 3000 Pro Limited Edition</h1>
     <div class="chartDashboard">
         <canvas id="chart"></canvas>
     </div>
@@ -151,23 +158,23 @@
         <div class="cards">
             <div class="card_group">
                 <div class="card">
-                    <h2 id="onePrice"></h2>
+                    <span id="onePrice"></span>
                 </div>
                 <div class="card">
                     <button id="buy" class="green_button">Kup</button>
                     <input type="number" min="1" max="1000000" id="buyCount"></input>
-                    <h2 id="buyPrice"></h2>
+                    <span id="buyPrice"></span>
                 </div>
             </div>
             <div class="card_group">
                 <div class="card">
-                    <h2 id="owned"></h2>
-                    <h2 id="ownedValue"></h2>
+                    <span id="owned"></span>
+                    <span id="ownedValue"></span>
                 </div>
                 <div class="card">
                     <button id="sell" class="red_button">Sprzedaj</button>
                     <input type="number" min="1" max="1000000" id="sellCount"></input>
-                    <h2 id="sellPrice"></h2>
+                    <span id="sellPrice"></span>
                 </div>
             </div>
         </div>
@@ -651,6 +658,7 @@
         changeCompany(e.target.value);
     })
     
+    Chart.defaults.font = {size: 14, family: "Consolas"};
     Chart.defaults.color = "white";
     Chart.defaults.borderColor = "#888888AA";
     
