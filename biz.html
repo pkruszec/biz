@@ -70,8 +70,7 @@
             margin: 0.5rem;
         }
         
-        
-        button {
+        .pm_button {
             border: none;
             padding: 10px 20px;
             color: white;
@@ -98,6 +97,21 @@
             background: rgba(10,255,10,0.9);
         }
         
+        .nextDay {
+            background-color: rgba(255, 255, 255, 0.2);
+            background: #3b3b3b;
+            border-radius: 12px;
+            min-width: max-content;
+            color: aliceblue;
+            border: none;
+            font-size: medium;
+            padding: 0.3em;
+            transition: all 0.6s;
+        }
+
+        .nextDay:is(:hover){
+            background-color: rgb(255, 255, 255, 0.3);   
+        }
         
         #select{
             background-color: rgba(255, 255, 255, 0.2);
@@ -132,8 +146,16 @@
             font-family: 'Consolas', monospace;
         }
 
+        .dictionary {
+            margin-top: 2em;
+        }
+
         input{
             font-size: medium;
+            color: white;
+            border-radius: 8px;
+            border: transparent;
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
     </style>
@@ -148,6 +170,7 @@
     
     
     <select id="select"></select>
+    <button class="nextDay" onclick="nextDayClick()">Następny dzień [n]</button>
     <span id="date"></span>
     <span id="balance"></span>
     
@@ -158,7 +181,7 @@
                     <span id="onePrice"></span>
                 </div>
                 <div class="card">
-                    <button id="buy" class="green_button">Kup</button>
+                    <button id="buy" class="pm_button green_button">Kup</button>
                     <input type="number" min="1" max="1000000" id="buyCount" placeholder="Ilość"></input>
                     <span id="buyPrice"></span>
                 </div>
@@ -169,7 +192,7 @@
                     <span id="ownedValue"></span>
                 </div>
                 <div class="card">
-                    <button id="sell" class="red_button">Sprzedaj</button>
+                    <button id="sell" class="pm_button red_button">Sprzedaj</button>
                     <input type="number" min="1" max="1000000" id="sellCount" placeholder="Ilość"></input>
                     <span id="sellPrice"></span>
                 </div>
@@ -777,6 +800,7 @@
     Chart.defaults.font = {size: 14, family: "Consolas"};
     Chart.defaults.color = "white";
     Chart.defaults.borderColor = "#888888AA";
+    Chart.defaults.plugins.legend.display = false;
     
     var chart = new Chart(ctx, {
         type: 'candlestick',
@@ -865,6 +889,13 @@
         while (c.data.length > maxW) {
             c.data.shift();
         }
+    }
+    
+    function nextDayClick() {
+        nextDay();
+        chart.update();
+        updateSpans();
+        updatePrices();
     }
     
     document.addEventListener('keydown', (ev) => {
